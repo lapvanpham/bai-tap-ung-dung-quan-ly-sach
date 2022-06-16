@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import AddBookForm from './AddBookForm';
+import BookList from './BookList';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const [books, setBooks] = React.useState([
+    { title: 'To Kill a Mockingbird', quantity: 1 },
+    { title: 'The Great Gatsby', quantity: 2 },
+    { title: 'The Hobbit', quantity: 3 },
+    { title: 'The Catcher in the Rye', quantity: 4 },
+    { title: 'The Lord of the Rings', quantity: 5 },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Library</h1>
+
+      <AddBookForm setBooks={setBooks}/>
+      <BookList books={books}/>
     </div>
   );
 }
